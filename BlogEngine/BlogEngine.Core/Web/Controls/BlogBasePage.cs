@@ -92,6 +92,9 @@ namespace BlogEngine.Core.Web.Controls
         /// <param name="value">
         /// The tag value.
         /// </param>
+        /// <param name="property">
+        /// The property name
+        /// </param>
         protected virtual void AddMetaTag(string name, string value)
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(value))
@@ -99,6 +102,24 @@ namespace BlogEngine.Core.Web.Controls
 
             const string tag = "\n\t<meta name=\"{0}\" content=\"{1}\" />";
             Header.Controls.Add(new LiteralControl(string.Format(tag, name, value)));
+        }
+
+        protected virtual void AddMetaProperty(string property, string value)
+        {
+            if (string.IsNullOrEmpty(property) || string.IsNullOrEmpty(value))
+                return;
+
+            const string tag = "\n\t<meta property=\"{0}\" content=\"{1}\" />";
+            Header.Controls.Add(new LiteralControl(string.Format(tag, property, value)));
+        }
+
+        protected virtual void AddMetaProperty(string name, string property, string value)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(property) || string.IsNullOrEmpty(value))
+                return;
+
+            const string tag = "\n\t<meta name=\"{0}\" property=\"{1}\" content=\"{2}\" />";
+            Header.Controls.Add(new LiteralControl(string.Format(tag, name, property, value)));
         }
 
         /// <summary>
