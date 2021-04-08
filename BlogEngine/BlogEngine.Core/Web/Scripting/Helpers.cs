@@ -120,7 +120,7 @@ namespace BlogEngine.Core.Web.Scripting
                 sb.Append("if(links[i].href.indexOf('#comment') >= 0) { ");
                 sb.Append("query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&'; ");
                 sb.Append("}}");
-                sb.Append("document.write('<script charset=\"utf-8\" type=\"text/javascript\" src=\"" + page.Request.Url.Scheme + "://disqus.com/forums/");
+                sb.Append("document.write('<script charset=\"utf-8\" type=\"text/javascript\" src=\"https://disqus.com/forums/");
                 sb.Append(BlogSettings.Instance.DisqusWebsiteName);
                 sb.Append("/get_num_replies.js' + query + '\"></' + 'script>'); ");
                 sb.Append("})(); \n");

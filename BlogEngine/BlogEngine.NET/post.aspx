@@ -35,7 +35,7 @@
         var disqus_developer = '<%= BlogSettings.Instance.DisqusDevMode ? 1 : 0 %>';
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '<%=Request.Url.Scheme %>://<%= BlogSettings.Instance.DisqusWebsiteName %>.disqus.com/embed.js';
+            dsq.src = 'https://<%= BlogSettings.Instance.DisqusWebsiteName %>.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
