@@ -699,7 +699,7 @@ namespace BlogEngine.Core
                 }
 
                 uri.Path = RelativeWebRoot;
-                uri.Scheme = context.Request.Url.Scheme; // added for https support
+                uri.Scheme = context.Request.Headers["x_forwarded_proto"] ?? context.Request.Url.Scheme; // added for https support
 
                 absoluteWebRoot = uri.Uri;
                 context.Items[contextItemKey] = absoluteWebRoot;
