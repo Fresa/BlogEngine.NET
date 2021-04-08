@@ -228,9 +228,13 @@ public partial class post : BlogBasePage
         base.AddMetaProperty("description", "og:description", Server.HtmlEncode(Post.Description));
         base.AddMetaProperty("og:site_name", BlogSettings.Instance.Name);
         base.AddMetaProperty("og:url", Post.AbsoluteLink.AbsoluteUri);
-        base.AddMetaProperty("image", "og:image",
-            Utils.AbsoluteWebRoot.AbsoluteUri +
-            Post.FirstImgSrc.TrimStart('/'));
+        base.AddMetaProperty(
+            "image", "og:image",
+            Post.FirstImgSrc.TrimStart()
+                .StartsWith("http", StringComparison.InvariantCultureIgnoreCase)
+                ? Post.FirstImgSrc.Trim()
+                : Utils.AbsoluteWebRoot.AbsoluteUri +
+                  Post.FirstImgSrc.TrimStart('/'));
         base.AddMetaProperty("og:type", "article");
         base.AddMetaProperty("article:published_time", Post.DateCreated.ToString("O"));
         base.AddMetaProperty("article:modified_time", Post.DateModified.ToString("O"));
