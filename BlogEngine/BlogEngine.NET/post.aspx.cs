@@ -220,7 +220,8 @@ public partial class post : BlogBasePage
 	/// </summary>
 	private void AddMetaDescription()
 	{
-        var desc = BlogSettings.Instance.Name + " - " + BlogSettings.Instance.Description + " - " + Post.Description;
+        //var desc = BlogSettings.Instance.Name + " - " + BlogSettings.Instance.Description + " - " + Post.Description;
+        var desc = Post.Description;
         base.AddMetaTag("description", Server.HtmlEncode(desc));
 	}
 
